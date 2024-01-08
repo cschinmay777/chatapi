@@ -18,7 +18,7 @@ def ask_question():
     if request.method == 'POST':
         user_response = request.json.get('response')
         print(user_response)
-        current_question_index += 1
+        current_question_index = int(user_response)
         if current_question_index < len(questions):
             next_question = questions[current_question_index]
             return jsonify({'question': next_question})
