@@ -1,14 +1,8 @@
 from flask import Flask, request, jsonify
-
+import question_book as qb
 app = Flask(__name__)
 
-questions = [
-    "What's something that made you smile today?",
-    "If you could travel anywhere right now, where would you go?",
-    "What's a hobby you'd love to pick up?",
-    "Share a favorite memory from the past year.",
-    "If you had a superpower, what would it be and why?"
-]
+
 
 current_question_index = 0
 
@@ -19,12 +13,16 @@ def ask_question():
         user_response = request.json.get('response')
         print(user_response)
         current_question_index = int(user_response)
-        if current_question_index < len(questions):
-            next_question = questions[current_question_index]
-            return jsonify({'question': next_question})
+        if current_question_index < len(qb.questions):
+            next_question = qb.questions[current_question_index][0]
+            subject=qb.questions[current_question_index][1]
+            return jsonify({'question': next_question,
+                            'subject':subject})
         else:
-            return jsonify({'message': 'Bye! You answered all the questions.'})
-    return jsonify({'question': questions[current_question_index]})
+            return jsonify({'message': 'Bye! You answered all the questions.',
+                            'subject':"pass"})
+    return jsonify({'question': qb.questions[current_question_index],
+                    'subject':"pass"})
 
 if __name__ == '__main__':
     app.run(debug=True)
