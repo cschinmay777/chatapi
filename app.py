@@ -19,7 +19,7 @@ def ask_question():
             return jsonify({'question': next_question,
                             'subject':subject})
         else:
-            return jsonify({'message': 'Bye! You answered all the questions.',
+            return jsonify({'question': 'Bye! You answered all the questions.',
                             'subject':"pass"})
     return jsonify({'question': qb.questions[current_question_index],
                     'subject':"pass"})
