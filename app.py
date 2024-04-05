@@ -206,8 +206,10 @@ sets_to_be_included=[arts,business,ca_questions,commerce,eng,law,medicine,psycho
 
 def questionsToBeAsked():
     if(maths<75):
-        sets_to_be_included.remove(eng)
-        sets_to_be_included.remove(ca_questions)
+        if(eng in sets_to_be_included):
+            sets_to_be_included.remove(eng)
+        if(ca_questions in sets_to_be_included):
+            sets_to_be_included.remove(ca_questions)
 
     if(phy<75):
         if(eng in sets_to_be_included):
