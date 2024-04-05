@@ -65,6 +65,8 @@ phy=0
 drawing =0
 handicap=0
 ss=0
+intrest1=""
+intrest2=""
 
 #####################################  Lists  ######################################
 
@@ -239,6 +241,12 @@ def questionsToBeAsked():
         if(sports_questions in sets_to_be_included):
             sets_to_be_included.remove(sports_questions)
 
+
+    if(intrest1 in sets_to_be_included):
+        sets_to_be_included.remove(intrest1)
+    if(intrest2 in sets_to_be_included):
+        sets_to_be_included.remove(intrest2)
+
     # if(drawing==0):
     #     if("anim-archi-fd" in sets_to_be_included):
     #         sets_to_be_included.remove("anim-archi-fd")
@@ -250,6 +258,25 @@ def framingQuestions():
         for ques in lst:
             qb.questions.append(ques)
 
+    if(intrest1 !=intrest2):
+        for i in range(5,10):
+            qb.questions.insert(0,eval(intrest1)[i])
+            qb.questions.insert(0,eval(intrest2)[i])
+    random.shuffle(qb.questions)
+
+    if(intrest1 !=intrest2):
+        for i in range(5):
+            qb.questions.insert(0,eval(intrest1)[i])
+            qb.questions.insert(0,eval(intrest2)[i])
+    else:
+        for i in range(5):
+            qb.questions.insert(0,eval(intrest1)[i])
+    
+
+
+
+        
+
 
 
 ####################################################################################
@@ -259,14 +286,14 @@ def takemarks():
     data = request.get_json()
 
     # Check if all required fields are present in the request
-    required_fields = ['math', 'phy', 'chem', 'bio', 'ss', 'lang', 'drawing','handicap']
+    required_fields = ['math', 'phy', 'chem', 'bio', 'ss', 'lang', 'drawing','handicap','intrest1','intrest2']
     if not all(field in data for field in required_fields):
         return jsonify({'error': 'Missing required fields'}), 400
 
     # Calculate total score
     print("maths : "+str(data['math']))
     print("chem : "+str(data['chem']))
-    global maths,bio,phy,lang,chem,ss,drawing,handicap
+    global maths,bio,phy,lang,chem,ss,drawing,handicap,intrest1,intrest2
     maths=data['math']
     chem=data['chem']
     bio=data['bio']
@@ -275,11 +302,13 @@ def takemarks():
     lang=data['lang']
     drawing=data['drawing']
     handicap=data['handicap']
+    intrest1=data['intrest1']
+    intrest2=data['intrest2']
     questionsToBeAsked()
     framingQuestions()
     total_score = sum(data[field] for field in required_fields)
     print(len(qb.questions))
-    random.shuffle(qb.questions)
+    
 
     # Return total score as JSON response
     return jsonify({'total_score': total_score})
