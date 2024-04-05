@@ -245,9 +245,9 @@ def questionsToBeAsked():
 
 
     if(eval(intrest1) in sets_to_be_included):
-        sets_to_be_included.remove(intrest1)
+        sets_to_be_included.remove(eval(intrest1))
     if(eval(intrest2) in sets_to_be_included):
-        sets_to_be_included.remove(intrest2)
+        sets_to_be_included.remove(eval(intrest2))
 
     # if(drawing==0):
     #     if("anim-archi-fd" in sets_to_be_included):
