@@ -306,12 +306,12 @@ def takemarks():
     intrest2=data['intrest2']
     questionsToBeAsked()
     framingQuestions()
-    total_score = sum(data[field] for field in required_fields)
+    # total_score = sum(data[field] for field in required_fields)
     print(len(qb.questions))
     
 
     # Return total score as JSON response
-    return jsonify({'total_score': total_score})
+    return jsonify({'total_score': "Got your marks"})
 
 if __name__ == '__main__':
     app.run(debug=True)
