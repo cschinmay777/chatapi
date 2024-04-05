@@ -244,9 +244,9 @@ def questionsToBeAsked():
             sets_to_be_included.remove(sports_questions)
 
 
-    if(intrest1 in sets_to_be_included):
+    if(eval(intrest1) in sets_to_be_included):
         sets_to_be_included.remove(intrest1)
-    if(intrest2 in sets_to_be_included):
+    if(eval(intrest2) in sets_to_be_included):
         sets_to_be_included.remove(intrest2)
 
     # if(drawing==0):
