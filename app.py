@@ -103,7 +103,8 @@ ca_questions = [
     ["Do you have strong attention to detail and the ability to spot discrepancies or irregularities in financial documents?", 'Chartered Accountancy (CA)'],
     ["Are you interested in gaining practical experience through internships or apprenticeships in accounting firms or corporate finance departments?", 'Chartered Accountancy (CA)'],
     ["Do you see yourself pursuing additional certifications or specializations to enhance your expertise in accounting and finance?", 'Chartered Accountancy (CA)'],
-    ["Are you open to continuous learning and staying updated on changes in accounting standards, tax regulations, and financial reporting requirements?", 'Chartered Accountancy (CA)'],]
+    ["Are you open to continuous learning and staying updated on changes in accounting standards, tax regulations, and financial reporting requirements?", 'Chartered Accountancy (CA)'],
+    ["Are you willing to invest time and resources into developing your business ideas and concepts?", 'Chartered Accountancy (CA)'],]
 commerce = [
     ["Are you interested in learning about business transactions, finance, and economics?", 'Commerce'],
     ["Do you enjoy analyzing data and financial statements to understand the performance of businesses?", 'Commerce'],
